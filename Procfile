@@ -1,1 +1,1 @@
-interval: ./backup.sh
+worker: ./backup.sh
