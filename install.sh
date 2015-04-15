@@ -4,8 +4,8 @@ tar -zxvf mongodb-linux-x86_64-3.0.2.tgz
 mkdir -p mongodb
 cp -R -n mongodb-linux-x86_64-3.0.2/ mongodb
 
-tree ./
+ls
 mv mongodb-linux-x86_64-3/bin/mongodump ./mongodump
 ls ./
 
-sh backup.sh
+# sh backup.sh
