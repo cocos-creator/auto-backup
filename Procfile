@@ -1,1 +1,1 @@
-worker: ./backup.sh
+worker: sh ./install.sh
