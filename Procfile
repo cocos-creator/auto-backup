@@ -1,1 +1,1 @@
-worker: sh ./backup.sh
+worker: sh ./backup.sh && cat
