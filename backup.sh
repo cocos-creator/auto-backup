@@ -29,6 +29,14 @@ check() {
   log 'check done'
 }
 
+download_exec() {
+  curl -O http://downloads.mongodb.org/linux/mongodb-linux-x86_64-3.0.2.tgz
+  tar -zxvf mongodb-linux-x86_64-3.0.2.tgz
+  mkdir -p mongodb
+  cp -R -n mongodb-linux-x86_64-3.0.2/ mongodb
+  mv mongodb-linux-x86_64-3.0.2/bin/mongodump ./mongodump
+}
+
 pull_from_database() {
   local host=$MONGO_HOST
   local database=$MONGO_DB
@@ -54,5 +62,5 @@ clean_dump() {
 }
 
 # main () {
-  check && pull_from_database && push_to_dropbox && clean_dump
+  check && download_exec && pull_from_database && push_to_dropbox && clean_dump
 # }
