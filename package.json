@@ -1,0 +1,7 @@
+{
+  "name": "auto-backup",
+  "version": "0.0.1",
+  "description": "Backup database to dropbox everyday in Bash",
+  "global": "true",
+  "scripts": [ "backup.sh" ]
+}
