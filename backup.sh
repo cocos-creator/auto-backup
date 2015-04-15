@@ -43,7 +43,7 @@ pull_from_database() {
 push_to_dropbox() {
   local day=`date +%d`
   local filename='accounts-'$day'.zip'
-  cat ./dump/file.zip | curl -XPOST 'https://api-content.dropbox.com/1/files_put/auto/'$filename'?access_token='$DROPBOX_ACCESS_TOKEN
+  curl -XPUT 'https://api-content.dropbox.com/1/files_put/auto/'$filename'?access_token='$DROPBOX_ACCESS_TOKEN -H'Content-Type: application/json' --data-binary "@./dump/file.zip"
   echo '\n'
   log 'dropbox done'
 }
