@@ -37,18 +37,20 @@ pull_from_database() {
 
   mongodump --host $host --db $database --username $user --password $pass
   zip -r dump/file.zip dump/accounts
-  log 'mongodump done > dump/file.zip'
+  log 'mongodump done'
 }
 
 push_to_dropbox() {
   local day=`date +%d`
   local filename='accounts-'$day'.zip'
   cat ./dump/file.zip | curl -XPOST 'https://api-content.dropbox.com/1/files_put/auto/'$filename'?access_token='$DROPBOX_ACCESS_TOKEN
-  log 'uploaded to dropbox'
+  echo '\n'
+  log 'dropbox done'
 }
 
 clean_dump() {
   rm -rf ./dump
+  log 'clean done'
 }
 
 # main () {
