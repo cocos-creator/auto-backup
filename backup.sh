@@ -35,7 +35,7 @@ pull_from_database() {
   local user=$MONGO_USERNAME
   local pass=$MONGO_PASSWORD
 
-  ./mongodump --host $host --db $database --username $user --password $pass
+  mongodump --host $host --db $database --username $user --password $pass
   zip -r ./dump/file.zip ./dump/accounts
   log 'mongodump done'
 }

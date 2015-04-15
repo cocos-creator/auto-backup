@@ -1,7 +1,9 @@
 
 uname -a
 
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-apt-get update
-apt-get install -y mongodb-org
+curl -O http://downloads.mongodb.org/linux/mongodb-linux-x86_64-3.0.2.tgz
+tar -zxvf mongodb-linux-x86_64-3.0.2.tgz
+mkdir -p mongodb
+cp -R -n mongodb-linux-x86_64-3.0.2/ mongodb
+
+ls mongodb/bin
